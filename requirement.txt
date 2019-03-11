@@ -1,0 +1,6 @@
+Python 2.7 +
+Matplotlib
+Gensim
+NLTK
+SKlearn
+Pandas
