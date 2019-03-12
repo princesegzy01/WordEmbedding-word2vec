@@ -35,9 +35,13 @@ for line in dataset:
 
     sentences.append(words)
 
+# build vocabulary
+model = Word2Vec(sentences, min_count=1, window=10)
 
 # train model
-model = Word2Vec(sentences, min_count=1, window=10)
+model.train(sentences, total_examples=len(sentences), epochs=10000)
+
+# sys.exit(0)
 
 vocabulary = list(model.wv.vocab)
 
@@ -53,7 +57,7 @@ vocabulary = list(model.wv.vocab)
 
 
 # get most similar tokens
-# print(model.most_similar(['business'], topn=4))
+print(model.most_similar(['business'], topn=4))
 
 # get positive and negative filtered data
 # print(model.most_similar(
